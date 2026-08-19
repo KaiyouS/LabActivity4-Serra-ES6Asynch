@@ -1,0 +1,461 @@
+/* ==========================================================================
+   Editorial Journal Style — Lab Activity 4
+   Modern Minimalist Typography & Layout (Substack / Medium Aesthetic)
+   ========================================================================== */
+
+/* --- Theme & Typography Variables --- */
+:root {
+    --bg-page: #faf9f5;
+    --bg-subtle: #f2f0ea;
+    --bg-white: #ffffff;
+    
+    --text-headline: #121212;
+    --text-body: #2b2b2b;
+    --text-meta: #706e6b;
+    --text-muted: #8c8984;
+    
+    --border-divider: #e8e5dc;
+    --border-dark: #121212;
+    --border-subtle: #dedbd2;
+    
+    --accent-emerald: #15803d;
+    --accent-rose: #be123c;
+    --accent-amber: #b45309;
+    
+    --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    
+    --reading-width: 740px;
+    --container-padding: 1.5rem;
+    --transition-smooth: 0.2s ease;
+}
+
+/* --- Global Reset & Box Sizing --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: var(--bg-page);
+    color: var(--text-body);
+    font-family: var(--font-sans);
+    line-height: 1.75;
+    min-height: 100vh;
+}
+
+/* --- Layout Container --- */
+.publication-wrapper {
+    max-width: var(--reading-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Masthead / Editorial Header --- */
+.masthead {
+    padding: 3rem 0 2rem;
+    border-bottom: 2px solid var(--border-dark);
+}
+
+.masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid var(--border-divider);
+    font-size: 0.8125rem;
+}
+
+.journal-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-meta);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+.bullet-sep {
+    color: var(--text-muted);
+}
+
+.refresh-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-headline);
+    padding: 0.4rem 0.85rem;
+    border-radius: 9999px;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-smooth);
+}
+
+.refresh-action-btn:hover:not(:disabled) {
+    background-color: var(--text-headline);
+    color: var(--bg-white);
+    border-color: var(--text-headline);
+}
+
+.refresh-action-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.refresh-action-btn.loading i {
+    animation: spin 1s linear infinite;
+}
+
+.masthead-body {
+    padding: 2.25rem 0 1.75rem;
+}
+
+.publication-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--text-headline);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.publication-deck {
+    font-size: 1.125rem;
+    color: var(--text-meta);
+    line-height: 1.6;
+    max-width: 680px;
+    font-weight: 400;
+}
+
+.masthead-status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8125rem;
+    color: var(--text-meta);
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-divider);
+}
+
+.status-feed-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-bullet {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--accent-emerald);
+    display: inline-block;
+    transition: background-color var(--transition-smooth);
+}
+
+.status-bullet.loading {
+    background-color: var(--accent-amber);
+    animation: pulse-subtle 1.2s ease-in-out infinite;
+}
+
+.status-bullet.error {
+    background-color: var(--accent-rose);
+}
+
+.post-count-badge {
+    font-weight: 500;
+}
+
+/* --- Main Reading Section --- */
+.editorial-main {
+    flex: 1;
+    padding: 1rem 0 4rem;
+}
+
+.posts-feed {
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Editorial Post Entry (No cards/boxes) --- */
+.editorial-post {
+    padding: 3.25rem 0;
+    border-bottom: 1px solid var(--border-divider);
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    transition: opacity var(--transition-smooth);
+}
+
+.editorial-post:last-of-type {
+    border-bottom: none;
+}
+
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: var(--text-meta);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.post-number {
+    color: var(--text-headline);
+}
+
+.meta-dot {
+    color: var(--text-muted);
+}
+
+.post-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--text-headline);
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    text-transform: capitalize;
+}
+
+.post-body {
+    font-size: 1.0625rem;
+    color: var(--text-body);
+    line-height: 1.75;
+    font-weight: 400;
+}
+
+.post-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+    color: var(--text-meta);
+}
+
+.post-source-tag {
+    font-style: italic;
+    font-family: var(--font-serif);
+    font-size: 0.9375rem;
+}
+
+/* --- Minimalist Skeleton Loading Placeholders --- */
+.skeleton-post {
+    padding: 3.25rem 0;
+    border-bottom: 1px solid var(--border-divider);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.skeleton-line {
+    background-color: var(--bg-subtle);
+    border-radius: 2px;
+    animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+.skeleton-meta {
+    width: 120px;
+    height: 14px;
+}
+
+.skeleton-title-1 {
+    width: 90%;
+    height: 28px;
+}
+
+.skeleton-title-2 {
+    width: 65%;
+    height: 28px;
+}
+
+.skeleton-body-1 {
+    width: 100%;
+    height: 16px;
+}
+
+.skeleton-body-2 {
+    width: 95%;
+    height: 16px;
+}
+
+.skeleton-body-3 {
+    width: 75%;
+    height: 16px;
+}
+
+/* --- Minimalist Error Notice --- */
+.error-editorial-box {
+    padding: 3rem 2rem;
+    margin: 2rem 0;
+    background-color: #fff5f5;
+    border-left: 3px solid var(--accent-rose);
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.error-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-rose);
+}
+
+.error-heading {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-headline);
+}
+
+.error-text {
+    font-size: 0.95rem;
+    color: var(--text-body);
+    line-height: 1.6;
+}
+
+.error-code {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--accent-rose);
+    background-color: #fee2e2;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    width: fit-content;
+}
+
+.error-retry-btn {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+    background-color: var(--text-headline);
+    color: var(--bg-white);
+    border: none;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 9999px;
+    transition: opacity var(--transition-smooth);
+}
+
+.error-retry-btn:hover {
+    opacity: 0.85;
+}
+
+/* --- Colophon / Footer --- */
+.colophon {
+    border-top: 2px solid var(--border-dark);
+    padding: 3rem 0 4rem;
+    margin-top: auto;
+}
+
+.colophon-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.colophon-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-headline);
+}
+
+.colophon-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-meta);
+}
+
+.colophon-notes {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.colophon-notes code {
+    font-family: monospace;
+    background-color: var(--bg-subtle);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    color: var(--text-headline);
+}
+
+/* --- Accessibility & Animations --- */
+:focus-visible {
+    outline: 2px solid var(--text-headline);
+    outline-offset: 3px;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse-subtle {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.4;
+    }
+}
+
+@keyframes skeleton-shimmer {
+    0%, 100% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.85;
+    }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 600px) {
+    .masthead {
+        padding: 2rem 0 1.5rem;
+    }
+
+    .masthead-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .editorial-post {
+        padding: 2.25rem 0;
+    }
+
+    .publication-deck {
+        font-size: 1rem;
+    }
+}
