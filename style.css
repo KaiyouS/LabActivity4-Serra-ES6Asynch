@@ -185,6 +185,50 @@ body {
     font-weight: 500;
 }
 
+/* --- Assignment Blockquote Styling --- */
+.assignment-quote {
+    border-left: 3px solid var(--text-muted);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    color: var(--text-muted);
+}
+
+.assignment-quote ol {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-left: 1.25rem; /* Provides space for the numbers */
+}
+
+.assignment-quote li {
+    line-height: 1.6;
+}
+
+.quote-label {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.editorial-link {
+    color: var(--text-headline);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--border-subtle);
+    transition: text-decoration-color var(--transition-smooth);
+}
+
+.editorial-link:hover {
+    text-decoration-color: var(--text-headline);
+}
+
 /* --- Main Reading Section --- */
 .editorial-main {
     flex: 1;
