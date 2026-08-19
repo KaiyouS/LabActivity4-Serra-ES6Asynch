@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Activity 4 — Editorial Post Explorer</title>
+    <!-- Google Fonts: Newsreader (Serif for headers) & Inter (Sans for body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Application Logic -->
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="publication-wrapper">
+        <!-- Top Editorial Masthead Navigation -->
+        <header class="masthead">
+            <div class="masthead-top">
+                <div class="journal-meta">
+                    <span class="edition-label">Lab Activity 4 · ES6+ & Asynchronous Fetch</span>
+                    <span class="bullet-sep">•</span>
+                    <span class="api-label">JSONPlaceholder Feed</span>
+                </div>
+                <div class="masthead-actions">
+                    <button id="refresh-btn" class="refresh-action-btn" type="button" aria-label="Refresh Feed">
+                        <i class="fa-solid fa-arrow-rotate-right"></i>
+                        <span>Refresh Feed</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="masthead-body">
+                <h1 class="publication-title">The Dispatch Reader</h1>
+                <p class="publication-deck">
+                    A curated collection of asynchronous posts fetched via REST API, transformed through modern JavaScript functional pipelines and rendered with minimalist typography.
+                </p>
+            </div>
+
+            <div class="masthead-status-bar">
+                <div class="status-feed-info">
+                    <span class="status-bullet"></span>
+                    <span id="status-text">Connecting to feed...</span>
+                </div>
+                <span id="post-count" class="post-count-badge">Loading entries</span>
+            </div>
+        </header>
+
+        <!-- Main Editorial Article Feed -->
+        <main class="editorial-main">
+            <!-- Target Container for Dynamic Post Entries -->
+            <section id="posts-container" class="posts-feed" aria-live="polite">
+                <!-- Content dynamically populated via app.js -->
+            </section>
+        </main>
+
+        <!-- Editorial Colophon / Footer -->
+        <footer class="colophon">
+            <div class="colophon-inner">
+                <div class="colophon-brand">
+                    <p class="colophon-title">The Dispatch Reader</p>
+                    <p class="colophon-subtitle">Lab Activity 4 · Advanced ES6+ & Asynchronous Fetch</p>
+                </div>
+                <p class="colophon-notes">
+                    Built with semantic HTML5, pure CSS, and vanilla ES6+ (<code>async/await</code>, <code>fetch</code>, <code>.filter()</code>, <code>.map()</code>, destructuring).
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
