@@ -1,7 +1,5 @@
 /**
  * Lab Activity 4: Advanced ES6+ & Asynchronous Fetch
- * Description: Fetches and displays posts from JSONPlaceholder using modern ES6+ standards
- * formatted in a minimalist editorial style.
  */
 
 // API Endpoint configuration
